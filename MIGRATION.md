@@ -101,7 +101,7 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 
 ---
 
-## Phase 5: Transactions Endpoint + BDD Test [Pending]
+## Phase 5: Transactions Endpoint + BDD Test [Complete]
 
 **Goal:** Complete the `/transactions` endpoint with its BDD test.
 
@@ -120,7 +120,7 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 **Verification:**
 - [x] `./go.sh test` passes ALL tests (BDD + unit)
 - [x] `curl localhost:5000/transactions` returns JSON array
-- [ ] GitHub Actions workflow passes
+- [x] GitHub Actions workflow passes
 
 ---
 
