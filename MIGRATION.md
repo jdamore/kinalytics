@@ -112,7 +112,10 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 
 **Update CLAUDE.md:**
 - Add `GET /transactions` to API Endpoints
-- Add web layer to Architecture section
+- Add controller layer to Architecture section
+
+**Update README.md:**
+- Add `GET /transactions` to API Endpoints
 
 **Verification:**
 - [ ] `./go.sh test` passes ALL tests (BDD + unit)
