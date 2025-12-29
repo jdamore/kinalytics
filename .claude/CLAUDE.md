@@ -45,6 +45,49 @@ Build Scans are enabled via the Develocity plugin in `settings.gradle.kts`.
 
 Build Scan reports include: build performance, dependency resolution, test results, and failure details.
 
+## Architecture
+
+This project follows a DDD (Domain-Driven Design) layered architecture:
+
+**Layers** (`src/main/kotlin/com/finalytics/`):
+- `domain/` - Core business entities (Transaction)
+- `infrastructure/` - Data access implementations (TransactionRepository, CsvTransactionRepository, RepositoryFactory)
+- `config/` - Application configuration (AppConfig, DataSource enum)
+- `controller/` - REST API endpoints (HelloController)
+
+**Data Flow:**
+1. Controller receives HTTP request
+2. Service (Phase 4) orchestrates business logic
+3. Repository fetches/persists data
+4. Domain entities represent business concepts
+
+## Data Format
+
+Transaction CSV files use **UTF-16 LE encoding** with columns:
+- Booking Date (DD.MM.YYYY format)
+- Partner Name
+- Partner IBAN
+- BIC/SWIFT
+- Partner Account Number
+- Bank code
+- Amount (comma as thousands separator, negative = outgoing)
+- Currency
+- Booking details
+- Payment Reference
+
+## Unit Tests
+
+Unit tests use JUnit 5 with MockK for mocking.
+
+**Structure:**
+- Unit tests: `src/test/kotlin/com/finalytics/unit/`
+- Use `@Test` annotation from JUnit 5
+- Use MockK for mocking dependencies
+
+**Running tests:**
+- `./go.sh test` - Run all tests (BDD + unit)
+- `./gradlew test --rerun-tasks` - Force re-run all tests
+
 ## BDD Tests
 
 BDD tests use Cucumber-JVM with Gherkin feature files.

@@ -80,8 +80,8 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 - Add unit test documentation
 
 **Verification:**
-- [ ] `./go.sh test` passes all 10 unit tests
-- [ ] CSV parsing handles UTF-16 LE, DD.MM.YYYY dates, comma thousands separators
+- [x] `./go.sh test` passes all 10 unit tests
+- [x] CSV parsing handles UTF-16 LE, DD.MM.YYYY dates, comma thousands separators
 
 ---
 
