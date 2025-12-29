@@ -85,7 +85,7 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 
 ---
 
-## Phase 4: Application Layer + Service Tests [Pending]
+## Phase 4: Application Layer + Service Tests [Complete]
 
 **Goal:** Implement TransactionService with unit tests.
 
@@ -97,7 +97,7 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 - Add service layer to Architecture section
 
 **Verification:**
-- [ ] `./go.sh test` passes service unit tests
+- [x] `./go.sh test` passes service unit tests
 
 ---
 
