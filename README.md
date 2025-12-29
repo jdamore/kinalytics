@@ -38,6 +38,7 @@ Use `./go.sh [command]` as the main entry point:
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/` | Returns "Hello, World!" |
+| GET | `/transactions` | Returns JSON array of all transactions |
 
 ## Configuration
 

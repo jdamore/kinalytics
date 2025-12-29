@@ -118,8 +118,8 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 - Add `GET /transactions` to API Endpoints
 
 **Verification:**
-- [ ] `./go.sh test` passes ALL tests (BDD + unit)
-- [ ] `curl localhost:5000/transactions` returns JSON array
+- [x] `./go.sh test` passes ALL tests (BDD + unit)
+- [x] `curl localhost:5000/transactions` returns JSON array
 - [ ] GitHub Actions workflow passes
 
 ---

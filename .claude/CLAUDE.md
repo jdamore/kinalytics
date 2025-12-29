@@ -18,6 +18,7 @@ Use `./go.sh [command]` as the main entry point:
 | Method | Path | Description |
 |--------|------|-------------|
 | GET | `/` | Returns "Hello, World!" |
+| GET | `/transactions` | Returns JSON array of all transactions |
 
 ## Configuration
 
@@ -54,7 +55,7 @@ This project follows a DDD (Domain-Driven Design) layered architecture:
 - `infrastructure/` - Data access implementations (TransactionRepository, CsvTransactionRepository, RepositoryFactory)
 - `service/` - Business logic services (TransactionService)
 - `config/` - Application configuration (AppConfig, DataSource enum)
-- `controller/` - REST API endpoints (HelloController)
+- `controller/` - REST API endpoints (HelloController, TransactionController)
 
 **Data Flow:**
 1. Controller receives HTTP request
