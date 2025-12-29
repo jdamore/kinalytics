@@ -7,6 +7,7 @@ develocity {
         termsOfUseUrl.set("https://gradle.com/help/legal-terms-of-use")
         termsOfUseAgree.set("yes")
         publishing.onlyIf { System.getenv("CI") != null }
+        tag("engineering-manager")
     }
 }
 
