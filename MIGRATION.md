@@ -41,7 +41,7 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 **Goal:** Implement the `/` endpoint with its BDD test.
 
 **Files:**
-- `src/main/kotlin/com/finalytics/web/HelloController.kt` - GET `/` returns "Hello, World!"
+- `src/main/kotlin/com/finalytics/controller/HelloController.kt` - GET `/` returns "Hello, World!"
 - `src/test/resources/features/hello.feature` - Copy from Python project
 - `src/test/kotlin/com/finalytics/bdd/CucumberConfig.kt` - Cucumber-Spring integration
 - `src/test/kotlin/com/finalytics/bdd/steps/HelloSteps.kt` - Step definitions
@@ -51,8 +51,8 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 - Add BDD test structure documentation
 
 **Verification:**
-- [ ] `./go.sh test` passes hello.feature BDD test
-- [ ] `curl localhost:5000/` returns "Hello, World!"
+- [x] `./go.sh test` passes hello.feature BDD test
+- [x] `curl localhost:5000/` returns "Hello, World!"
 
 ---
 
@@ -106,7 +106,7 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 **Goal:** Complete the `/transactions` endpoint with its BDD test.
 
 **Files:**
-- `src/main/kotlin/com/finalytics/web/TransactionController.kt` - GET `/transactions` returns JSON
+- `src/main/kotlin/com/finalytics/controller/TransactionController.kt` - GET `/transactions` returns JSON
 - `src/test/resources/features/transactions.feature` - Copy from Python project
 - `src/test/kotlin/com/finalytics/bdd/steps/TransactionsSteps.kt` - Step definitions
 
@@ -184,7 +184,7 @@ kinalytics/
     │   │   │   ├── CsvTransactionRepository.kt         # Phase 3
     │   │   │   └── RepositoryFactory.kt                # Phase 3
     │   │   ├── application/TransactionService.kt       # Phase 4
-    │   │   └── web/
+    │   │   └── controller/
     │   │       ├── HelloController.kt                  # Phase 2
     │   │       └── TransactionController.kt            # Phase 5
     │   └── resources/

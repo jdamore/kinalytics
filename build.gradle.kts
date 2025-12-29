@@ -50,4 +50,20 @@ kotlin {
 tasks.withType<Test> {
     useJUnitPlatform()
     systemProperty("cucumber.junit-platform.naming-strategy", "long")
+
+    testLogging {
+        events("passed", "skipped", "failed")
+        showExceptions = true
+        showCauses = true
+        showStackTraces = true
+        exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+    }
+
+    afterSuite(KotlinClosure2<TestDescriptor, TestResult, Unit>({ desc, result ->
+        if (desc.parent == null) {
+            val output = "Results: ${result.resultType} (${result.testCount} tests, ${result.successfulTestCount} passed, ${result.failedTestCount} failed, ${result.skippedTestCount} skipped)"
+            val line = "-".repeat(output.length)
+            println("\n$line\n$output\n$line")
+        }
+    }))
 }

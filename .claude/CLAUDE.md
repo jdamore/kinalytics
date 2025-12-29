@@ -13,6 +13,12 @@ Use `./go.sh [command]` as the main entry point:
 - `./go.sh clean` - Clean build artifacts
 - `./go.sh hooks` - Install git hooks (pre-commit, pre-push)
 
+## API Endpoints
+
+| Method | Path | Description |
+|--------|------|-------------|
+| GET | `/` | Returns "Hello, World!" |
+
 ## Configuration
 
 This project uses **Spring Boot profiles** for environment-specific configuration.
@@ -38,6 +44,21 @@ Build Scans are enabled via the Develocity plugin in `settings.gradle.kts`.
 - **Locally:** Scans are not published (controlled by `CI` env var check)
 
 Build Scan reports include: build performance, dependency resolution, test results, and failure details.
+
+## BDD Tests
+
+BDD tests use Cucumber-JVM with Gherkin feature files.
+
+**Structure:**
+- Feature files: `src/test/resources/features/*.feature`
+- Step definitions: `src/test/kotlin/com/finalytics/bdd/steps/`
+- Config: `src/test/kotlin/com/finalytics/bdd/CucumberConfig.kt`
+- Runner: `src/test/kotlin/com/finalytics/bdd/RunCucumberTest.kt`
+
+**Adding a new BDD test:**
+1. Create `.feature` file in `src/test/resources/features/`
+2. Create step definitions in `src/test/kotlin/com/finalytics/bdd/steps/`
+3. Use `@Given`, `@When`, `@Then` annotations from Cucumber
 
 ## Tech Stack
 
