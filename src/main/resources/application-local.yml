@@ -1,0 +1,6 @@
+server:
+  port: 5000
+
+app:
+  data-source: csv
+  csv-path: data/TX_example.csv

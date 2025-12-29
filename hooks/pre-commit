@@ -1,0 +1,10 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "Running pre-commit checks..."
+
+# Run tests
+echo "Running tests..."
+./go.sh test
+
+echo "Pre-commit checks passed."
