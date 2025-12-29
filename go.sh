@@ -29,7 +29,7 @@ run_tests() {
 
 run_local() {
     echo "Starting application locally..."
-    ./gradlew bootRun
+    SPRING_PROFILES_ACTIVE=local ./gradlew bootRun
 }
 
 run_clean() {
