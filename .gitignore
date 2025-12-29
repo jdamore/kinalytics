@@ -28,6 +28,3 @@ Thumbs.db
 
 # Logs
 *.log
-
-# Migration plan (local only)
-MIGRATION.md
