@@ -36,7 +36,7 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 
 ---
 
-## Phase 2: Hello World Endpoint + BDD Test [Pending]
+## Phase 2: Hello World Endpoint + BDD Test [Complete]
 
 **Goal:** Implement the `/` endpoint with its BDD test.
 
