@@ -90,11 +90,11 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 **Goal:** Implement TransactionService with unit tests.
 
 **Files:**
-- `src/main/kotlin/com/finalytics/application/TransactionService.kt` - Spring @Service
+- `src/main/kotlin/com/finalytics/service/TransactionService.kt` - Spring @Service
 - `src/test/kotlin/com/finalytics/unit/TransactionServiceTest.kt` - 2 tests with mocked repository
 
 **Update CLAUDE.md:**
-- Add application layer to Architecture section
+- Add service layer to Architecture section
 
 **Verification:**
 - [ ] `./go.sh test` passes service unit tests
@@ -186,7 +186,7 @@ kinalytics/
     │   │   │   ├── TransactionRepository.kt            # Phase 3
     │   │   │   ├── CsvTransactionRepository.kt         # Phase 3
     │   │   │   └── RepositoryFactory.kt                # Phase 3
-    │   │   ├── application/TransactionService.kt       # Phase 4
+    │   │   ├── service/TransactionService.kt           # Phase 4
     │   │   └── controller/
     │   │       ├── HelloController.kt                  # Phase 2
     │   │       └── TransactionController.kt            # Phase 5

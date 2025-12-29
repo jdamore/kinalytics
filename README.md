@@ -4,7 +4,7 @@ A Kotlin/Spring Boot web application for displaying and analyzing financial tran
 
 ## Requirements
 
-- Java 21+
+- Java 21
 - Gradle 8.x (wrapper included)
 
 ## Quick Start
