@@ -55,7 +55,7 @@ Spring Boot application using DDD structure with BDD-style testing.
 - `config/` - Environment-based configuration
 - `domain/` - Entity definitions (Transaction)
 - `infrastructure/` - Data access (TransactionRepository, CsvTransactionRepository)
-- `application/` - Business logic services (TransactionService)
+- `service/` - Business logic services (TransactionService)
 - `web/` - REST controllers
 
 **Test Structure:**

@@ -52,7 +52,7 @@ This project follows a DDD (Domain-Driven Design) layered architecture:
 **Layers** (`src/main/kotlin/com/finalytics/`):
 - `domain/` - Core business entities (Transaction)
 - `infrastructure/` - Data access implementations (TransactionRepository, CsvTransactionRepository, RepositoryFactory)
-- `application/` - Business logic services (TransactionService)
+- `service/` - Business logic services (TransactionService)
 - `config/` - Application configuration (AppConfig, DataSource enum)
 - `controller/` - REST API endpoints (HelloController)
 
