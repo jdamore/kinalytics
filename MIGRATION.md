@@ -56,7 +56,7 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 
 ---
 
-## Phase 3: Domain & Infrastructure Layers + Unit Tests [Pending]
+## Phase 3: Domain & Infrastructure Layers + Unit Tests [Complete]
 
 **Goal:** Implement Transaction entity and CSV repository with all unit tests.
 
