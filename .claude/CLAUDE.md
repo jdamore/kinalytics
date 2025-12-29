@@ -30,6 +30,15 @@ This project uses **Spring Boot profiles** for environment-specific configuratio
 2. Use `@Value("${app.property}")` to inject values
 3. Or use `@Profile("local")` / `@Profile("prod")` on beans for conditional loading
 
+## Gradle Build Scans
+
+Build Scans are enabled via the Develocity plugin in `settings.gradle.kts`.
+
+- **In CI:** Scans are published automatically; links appear in GitHub Actions job summary
+- **Locally:** Scans are not published (controlled by `CI` env var check)
+
+Build Scan reports include: build performance, dependency resolution, test results, and failure details.
+
 ## Tech Stack
 
 - Kotlin 2.1
