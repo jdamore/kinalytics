@@ -157,6 +157,55 @@ Migrate the Python/Flask finalytics application to Kotlin/SpringBoot with Gradle
 
 ---
 
+## Phase 7: GCS Transaction Repository [Pending]
+
+**Goal:** Enable reading transactions from GCP Cloud Storage bucket in prod mode.
+
+**Files:**
+- `src/main/kotlin/com/finalytics/infrastructure/GcsTransactionRepository.kt` - GCS-based repository using ADC
+- `src/test/kotlin/com/finalytics/unit/GcsTransactionRepositoryTest.kt` - 5 unit tests with mocked GCS client
+
+**Update existing files:**
+- `src/main/kotlin/com/finalytics/config/AppConfig.kt` - Add `bucketName` property
+- `src/main/kotlin/com/finalytics/infrastructure/RepositoryFactory.kt` - Return GcsTransactionRepository for PROD mode
+- `src/main/resources/application-prod.yml` - Add `app.bucket-name: finalytics-transactions-bucket`
+
+**Update go.sh:**
+- Add `GCP_SERVICE_ACCOUNT_RUNNER_NAME` and `GCP_SERVICE_ACCOUNT_RUNNER` variables
+- Split `gcloudiam` into `run_gcloudiam_deployer()` and `run_gcloudiam_runner()`
+- Add bucket permission grant in `run_gcloudiam_runner()`
+- Update `gclouddeploy` to use `--service-account ${GCP_SERVICE_ACCOUNT_RUNNER}`
+
+**Update deploy.yml:**
+- Add `GCP_SERVICE_ACCOUNT_RUNNER` environment variable
+- Update deploy command with `--service-account` and `APP_MODE=prod`
+
+**Update CLAUDE.md:**
+- Add GCS configuration section (bucket name, file pattern, ADC authentication)
+
+**GCS Configuration:**
+- Bucket: `finalytics-transactions-bucket`
+- File pattern: `TX_<start-date>_<end-date>.csv` (e.g., `TX_2025-11-01_2025-11-30.csv`)
+- Authentication: Application Default Credentials (ADC)
+- IAM setup: `./go.sh gcloudiam` creates runner SA and grants bucket access
+
+**Service Account Structure:**
+- `finalytics-deployer` - Used by CI/CD to deploy (Artifact Registry Writer, Cloud Run Developer)
+- `finalytics-runner` - Used by Cloud Run at runtime (Storage Object Viewer on bucket)
+
+**Dependencies (build.gradle.kts):**
+```kotlin
+implementation("com.google.cloud:google-cloud-storage:2.14.0")
+```
+
+**Verification:**
+- [ ] Unit tests pass with mocked GCS client
+- [ ] `./go.sh gcloudiam` creates both service accounts and grants permissions
+- [ ] Application runs in prod mode with `APP_MODE=prod`
+- [ ] Transactions are fetched from GCS bucket correctly
+
+---
+
 ## Final Project Structure
 
 ```
@@ -185,6 +234,7 @@ kinalytics/
     │   │   ├── infrastructure/
     │   │   │   ├── TransactionRepository.kt            # Phase 3
     │   │   │   ├── CsvTransactionRepository.kt         # Phase 3
+    │   │   │   ├── GcsTransactionRepository.kt         # Phase 7
     │   │   │   └── RepositoryFactory.kt                # Phase 3
     │   │   ├── service/TransactionService.kt           # Phase 4
     │   │   └── controller/
@@ -197,6 +247,7 @@ kinalytics/
         ├── kotlin/com/finalytics/
         │   ├── unit/
         │   │   ├── CsvTransactionRepositoryTest.kt     # Phase 3
+        │   │   ├── GcsTransactionRepositoryTest.kt     # Phase 7
         │   │   ├── TransactionServiceTest.kt           # Phase 4
         │   │   └── RepositoryFactoryTest.kt            # Phase 3
         │   └── bdd/
